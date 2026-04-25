@@ -1,4 +1,4 @@
-const { setworldconstructor } = require('@cucumber/cucumber');
+const { setWorldConstructor } = require('@cucumber/cucumber');
 
 class CustomWorld {
     constructor() {
@@ -7,4 +7,6 @@ class CustomWorld {
         this.browser = null
     }
 }
+
+setWorldConstructor(CustomWorld);
 module.exports = CustomWorld;

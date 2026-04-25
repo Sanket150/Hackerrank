@@ -4,7 +4,7 @@ let loginPage;
 
 Given('I am on the login page', async function () {
     loginPage = new Login(this.page)
-    await loginPage.navigateToLoginPage()
+    await loginPage.navigateToLoginPage(process.env.App_URL)
 
 });
 When('I enter login credentials if not already logged in', async function () {

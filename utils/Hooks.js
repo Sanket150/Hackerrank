@@ -9,10 +9,13 @@ Before(async function () {
 
     this.browser = await chromium.launch({
         headless: isCI,
-        args: isCI ? [] : ['--start-maximized']
+        channel: 'chrome',
+        args: isCI ? [] : ['--start-maximized'],
+        args: ['--disable-blink-features=AutomationControlled']
     })
 
     this.context = await this.browser.newContext({
+        userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
         viewport: isCI ? { width: 1920, height: 1080 } : null,
         screen: { width: 1920, height: 1080 },
     })

@@ -13,23 +13,21 @@ class Login extends Basepage {
 
     }
 
-    async navigateToLoginPage() {
-        await this.navigate('https://www.hackerrank.com/dashboard')
+    async navigateToLoginPage(url) {
+        await this.navigate(url)
         await this.page.waitForTimeout(2000)
     }
 
     async login(username, password) {
-        await this.returnbooleanifvisible(this.SignIn) ? await this.ClickBtn(this.SignIn) : console.log('Already on login page')
-
         if (await this.returnbooleanifvisible(this.SignIn)) {
+            await this.ClickBtn(this.SignIn)
             await this.Filldetails(this.usernamefield, username)
             await this.Filldetails(this.passwordfield, password)
             await this.ClickBtn(this.loginBtn)
         }
-
+        else {
+            console.log('Already on login page')
+        }
     }
-
-
-
 }
 module.exports = Login;
