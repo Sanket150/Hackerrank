@@ -6,7 +6,7 @@ module.exports = {
             'utils/World.js',
             'utils/Hooks.js'
         ],
-        format: ['progress'],
+        format: ['progress', 'json:reports/cucumber-report.json', 'html:reports/cucumber-report.html'],
         defaultTimeout: 120000
     }
 };
