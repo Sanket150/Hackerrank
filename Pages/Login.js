@@ -21,9 +21,11 @@ class Login extends Basepage {
     async login(username, password) {
         await this.returnbooleanifvisible(this.SignIn) ? await this.ClickBtn(this.SignIn) : console.log('Already on login page')
 
-        await this.Filldetails(this.usernamefield, username)
-        await this.Filldetails(this.passwordfield, password)
-        await this.ClickBtn(this.loginBtn)
+        if (await this.returnbooleanifvisible(this.SignIn)) {
+            await this.Filldetails(this.usernamefield, username)
+            await this.Filldetails(this.passwordfield, password)
+            await this.ClickBtn(this.loginBtn)
+        }
 
     }
 
